@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>विवाह निमंत्रण</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Mangal, Arial, sans-serif;
+    background:linear-gradient(#fff0f5,#ffe6ee);
+    overflow:hidden;
+}
+
+/* BOOK */
+.book{
+    width:100%;
+    height:100vh;
+    perspective:1500px;
+    position:relative;
+}
+
+/* PAGE COMMON */
+.page{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:linear-gradient(#fff,#ffeaf1);
+    backface-visibility:hidden;
+    text-align:center;
+    padding:45px 20px;
+}
+
+/* FIRST PAGE */
+#page1{
+    z-index:2;
+}
+
+/* SECOND PAGE (hidden initially) */
+#page2{
+    display:none;
+    z-index:1;
+}
+
+/* TEXT */
+h1{
+    color:#a0004d;
+    font-size:36px;
+}
+.names{
+    font-size:32px;
+    font-weight:bold;
+    color:#7b0039;
+    margin-top:30px;
+}
+.quote{
+    font-size:20px;
+    color:#555;
+    margin-top:25px;
+    font-style:italic;
+    line-height:1.6;
+}
+
+/* BUTTON */
+button{
+    margin-top:40px;
+    padding:14px 36px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    background:#b30059;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* EVENT */
+.event{
+    background:white;
+    max-width:620px;
+    margin:18px auto;
+    padding:22px;
+    border-radius:18px;
+    font-size:22px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:24px;
+    animation:floatUp 6s linear infinite;
+    opacity:0.8;
+    pointer-events:none;
+}
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:0;}
+    10%{opacity:0.8;}
+    100%{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+<script>
+for(let i=0;i<15;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"%";
+    h.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(h);
+}
+</script>
+
+<div class="book">
+
+    <!-- FIRST PAGE -->
+    <div class="page" id="page1">
+        <h1>🌸 विवाह निमंत्रण 🌸</h1>
+        <p>॥ श्री गणेशाय नमः ॥</p>
+
+        <div class="names">
+            रवि सिंह 💖 खुशबू सिंह
+        </div>
+
+        <p class="quote">
+            दो दिलों का मिलन,<br>
+            प्रेम और विश्वास से सजा<br>
+            एक पवित्र वैवाहिक बंधन।
+        </p>
+
+        <p class="quote">
+            कृपया सपरिवार पधारकर<br>
+            हमें अपना आशीर्वाद प्रदान करें।
+        </p>
+
+        <!-- BUTTON TO OPEN SECOND PAGE -->
+        <button onclick="openSecondPage()">➡️ विवाह कार्यक्रम देखें</button>
+    </div>
+
+    <!-- SECOND PAGE -->
+    <div class="page" id="page2">
+        <h1>📿 विवाह कार्यक्रम 📿</h1>
+
+        <div class="event">
+            💐 <strong>शुभ तिलक</strong><br>
+             25 अप्रैल 2026
+        </div>
+
+        <div class="event">
+            🌼 <strong>शुभ हल्दी</strong><br>
+             27 अप्रैल 2026
+        </div>
+
+        <div class="event">
+            💍 <strong>शुभ विवाह</strong><br>
+             28 अप्रैल 2026
+        </div>
+
+        <p class="quote">
+            🙏 आपकी उपस्थिति हमारे लिए सौभाग्य होगी 🙏
+        </p>
+
+        <!-- BOTTOM BUTTON (CONFIRM PAGE ON) -->
+        <button onclick="goTop()">⬆️ ऊपर जाएँ</button>
+    </div>
+
+</div>
+
+<script>
+function openSecondPage(){
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+}
+
+function goTop(){
+    document.getElementById("page2").style.display="none";
+    document.getElementById("page1").style.display="block";
+}
+</script>
+
+</body>
+</html>
